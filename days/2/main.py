@@ -1,4 +1,4 @@
-# Advent of code Year 2024 Day {} solution
+# Advent of code Year 2024 Day 2 solution
 # Author = Drew Blocki
 # Date = December 2024
 

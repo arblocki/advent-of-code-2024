@@ -5,5 +5,10 @@
 with open((__file__.rstrip("main.py")+"input.txt"), 'r') as input_file:
     input = input_file.read()
 
-# WRITE SOLUTION HERE
+# PART 1
+print('PART 1')
 
+
+
+# PART 2
+# print('PART 2')
