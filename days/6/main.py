@@ -133,8 +133,6 @@ class GuardSimulation:
             if checkForLoops:
                 rotationPosition = f'{self.guard_row}-{self.guard_col}-{self.orientation}'
                 if rotationPosition in self.rotationPositions:
-                    # print(f'FOUND DUPLICATE ROTATION AT {rotationPosition}')
-                    # print(f'\t{self.rotationPositions}')
                     return True
                 else:
                     self.rotationPositions.add(rotationPosition)
@@ -176,6 +174,7 @@ totalLoopScenarios = 0
 for xSpot in xSpots:
     row = xSpot[0]
     col = xSpot[1]
+    print(f'ADDING OBSTACLE AT ({row}, {col})')
     simulationCopy = deepcopy(init_simulation)
     simulationCopy.map[row][col] = '#'
     loopEncountered = simulationCopy.run_loop_simulation()
