@@ -54,48 +54,36 @@ for char in antennaCharSet:
                 antinodeLocSetWithResonance.add(secondLoc)
                 countWithResonance += 1 
             
-            # print(f'\tCHECKING ANTINODES OF {firstLoc} and {secondLoc}')
             rowDiff = secondLoc[0] - firstLoc[0]
             colDiff = secondLoc[1] - firstLoc[1]
             
             firstAntinodeCandidate = (firstLoc[0] - rowDiff, firstLoc[1] - colDiff)
-            # print(f'\t\tCHECKING {firstAntinodeCandidate}')
             if onMap(firstAntinodeCandidate, rows, cols) and firstAntinodeCandidate not in antinodeLocSet:
-                # print(f'\t\t\tADDING {firstAntinodeCandidate}')
                 antinodeLocSet.add(firstAntinodeCandidate)
                 count += 1
 
             resonantCandidate = firstAntinodeCandidate
             while onMap(resonantCandidate, rows, cols):
-                # print(f'\t\tCHECKING {resonantCandidate} WITH RESONANCE')
                 if resonantCandidate not in antinodeLocSetWithResonance:
-                    # print(f'\t\t\tADDING {resonantCandidate}')
                     antinodeLocSetWithResonance.add(resonantCandidate)
                     countWithResonance += 1
                 resonantCandidate = (resonantCandidate[0] - rowDiff, resonantCandidate[1] - colDiff)
                 
             secondAntinodeCandidate = (secondLoc[0] + rowDiff, secondLoc[1] + colDiff)
-            # print(f'\t\tCHECKING {secondAntinodeCandidate}')
             if onMap(secondAntinodeCandidate, rows, cols) and secondAntinodeCandidate not in antinodeLocSet:
-                # print(f'\t\t\tADDING {secondAntinodeCandidate}')
                 antinodeLocSet.add(secondAntinodeCandidate)
                 count += 1
                 
             resonantCandidate = secondAntinodeCandidate
             while onMap(resonantCandidate, rows, cols):
-                # print(f'\t\tCHECKING {resonantCandidate} WITH RESONANCE')
                 if resonantCandidate not in antinodeLocSetWithResonance:
-                    # print(f'\t\t\tADDING {resonantCandidate}')
                     antinodeLocSetWithResonance.add(resonantCandidate)
                     countWithResonance += 1
                 resonantCandidate = (resonantCandidate[0] + rowDiff, resonantCandidate[1] + colDiff)
 
 print(f'COUNT: {count}')
-# print(f'ANTINODES: {antinodeLocSet}')
-
 print()
 
 # PART 2
 print('PART 2')
 print(f'COUNT WITH RESONANCE: {countWithResonance}')
-# print(f'ANTINODES WITH RESONANCE: {antinodeLocSetWithResonance}')
