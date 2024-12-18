@@ -24,22 +24,8 @@ def parseRobots(input):
     return robots, xLen, yLen
 
 def iterateRobots(robots, xLen, yLen):
-    for index, robot in enumerate(robots):
-        px, py, vx, vy = robot[:4]
-        
-        newPx = px + vx
-        if newPx < 0:
-            newPx += xLen
-        elif newPx >= xLen:
-            newPx -= xLen
-            
-        newPy = py + vy
-        if newPy < 0:
-            newPy += yLen
-        elif newPy >= yLen:
-            newPy -= yLen
-            
-        robots[index] = (newPx, newPy, vx, vy)
+    for index, (px, py, vx, vy) in enumerate(robots):
+        robots[index] =  ((px + vx) % xLen, (py + vy) % yLen, vx, vy)
     return robots
 
 def checkForTree(robots):
@@ -92,7 +78,7 @@ def calculateSafetyFactor(robots, xLen, yLen):
 
 print('PART 2')
 robots, xLen, yLen = parseRobots(input)
-for i in range(8186):
+for i in range(1, 10001):
     print(f'\t{i}')
     robots = iterateRobots(robots, xLen, yLen)
     if checkForTree(robots):
