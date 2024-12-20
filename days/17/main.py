@@ -28,19 +28,19 @@ def comboOp(op):
     return op
 
 # a = aInit
-aNext = 1
+a = 0
 b = bInit
 c = cInit
 
+# TODO: Seems like the strategy is to solve from the back, 
+# then bitshift the candidate A left 3, and continue solving
+
+aFinal = 0
+
 out = []
+outIndex = 
 while out != program:
     a = aNext
-    if a % 100000 == 0:
-        print(a)
-    # test = (((a % 8) ^ 5) ^ 6) ^ int(a / (int(math.exp2(a % 8)) ^ 5))
-    # if test % 8 != 2:
-    #     aNext += 1
-    #     continue
     b = bInit
     c = cInit
 
